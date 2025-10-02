@@ -12,6 +12,9 @@ jobs:
   build_test:
     runs-on: ubuntu-latest
 
+    env:
+      SECRET_KEY: ${{ secrets.SECRET_KEY }}
+      DATABASE_URL: ${{ secrets.DATABASE_URL }}
     steps:
       # Check out the repository
       - name: Checkout code
