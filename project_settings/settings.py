@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
-from decouple import config# Build paths inside the project like this: BASE_DIR / 'subdir'.
+from decouple import config
 import dj_database_url
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -59,8 +59,7 @@ ROOT_URLCONF = 'project_settings.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates']
-        ,
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

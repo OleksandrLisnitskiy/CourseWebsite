@@ -1,9 +1,9 @@
 from django.test import TestCase
-
 from services.models import Service
-from datetime import date
+
 
 class ServiceModelTest(TestCase):
+
 
     def setUp(self):
         # Set up data for the test
