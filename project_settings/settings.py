@@ -11,20 +11,18 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
-import environ
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
+from decouple import config# Build paths inside the project like this: BASE_DIR / 'subdir'.
+import dj_database_url
 BASE_DIR = Path(__file__).resolve().parent.parent
-env = environ.Env()
-environ.Env.read_env()
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
-
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env.bool('SECRET_KEY')
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env.bool('DEBUG', default=False)
+DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = []
 
@@ -33,6 +31,9 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'payments',
+    'users',
+    'services',
+    'api',
     'django_celery_beat',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -40,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
 ]
 
 MIDDLEWARE = [
@@ -52,7 +54,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'CourseWebsite.urls'
+ROOT_URLCONF = 'project_settings.urls'
 
 TEMPLATES = [
     {
@@ -70,14 +72,14 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'CourseWebsite.wsgi.application'
+WSGI_APPLICATION = 'project_settings.wsgi.application'
 
 
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASES = {
-    'default': env.db('DATABASE_URL')
+    'default': dj_database_url.parse(config('DATABASE_URL'))
 }
 
 
