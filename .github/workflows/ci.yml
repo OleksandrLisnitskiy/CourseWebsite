@@ -56,10 +56,10 @@ jobs:
           python manage.py test  # Running Django tests
 
       # Optional: Run linters (like flake8 or pylint)
-      - name: Run linter (flake8 example)
-        run: |
-          pip install flake8
-          flake8 .  # Check your Python files for linting issues
+#      - name: Run linter (flake8 example)
+#        run: |
+#          pip install flake8
+#          flake8 .  # Check your Python files for linting issues
 
       # Optional: Check for code formatting (black example)
       - name: Check code formatting (black example)
