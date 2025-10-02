@@ -4,13 +4,10 @@ from services.models import Service
 
 class ServiceModelTest(TestCase):
 
-
     def setUp(self):
         # Set up data for the test
         self.service = Service.objects.create(
-            name="Webinar",
-            master="William S. Vincent",
-            price=100
+            name="Webinar", master="William S. Vincent", price=100
         )
 
     def test_service_name(self):
