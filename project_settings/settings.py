@@ -28,14 +28,12 @@ SECRET_KEY = config("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config("DEBUG", default=False, cast=bool)
 
-
 ALLOWED_HOSTS = []
 
 
 # Application definition
 
 INSTALLED_APPS = [
-
     "payments",
     "users",
     "services",
@@ -64,14 +62,14 @@ ROOT_URLCONF = "project_settings.urls"
 TEMPLATES = [
     {
 
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
+        "BACKEND": "django.template.backends.django.DjangoTemplates",
+        "DIRS": [BASE_DIR / "templates"],
+        "APP_DIRS": True,
+        "OPTIONS": {
+            "context_processors": [
+                "django.template.context_processors.request",
+                "django.contrib.auth.context_processors.auth",
+                "django.contrib.messages.context_processors.messages",
             ],
 
         },
@@ -79,7 +77,9 @@ TEMPLATES = [
 ]
 
 
+
 WSGI_APPLICATION = 'project_settings.wsgi.application'
+
 
 
 
@@ -87,9 +87,11 @@ WSGI_APPLICATION = 'project_settings.wsgi.application'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 
+
 DATABASES = {
     'default': dj_database_url.parse(config('DATABASE_URL'))
 }
+
 
 
 
@@ -117,7 +119,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
 
 
+
 LANGUAGE_CODE = "en-us"
+
 
 TIME_ZONE = "UTC"
 
@@ -130,6 +134,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 
+
 STATIC_URL = "static/"
 
 
@@ -137,5 +142,7 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 
+
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
 
