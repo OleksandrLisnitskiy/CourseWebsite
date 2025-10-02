@@ -12,6 +12,19 @@ jobs:
   build_test:
     runs-on: ubuntu-latest
 
+    services:
+      postgres:
+        image: postgres:13
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: admin  # Set your password here
+          POSTGRES_DB: CourseWebsite  # Set your database name here
+        ports:
+          - 5433:5432  # Expose PostgreSQL port
+        options: >-
+          --health-cmd="pg_isready -U postgres"
+          --health-timeout=30s
+          --health-retries=5
     env:
       SECRET_KEY: ${{ secrets.SECRET_KEY }}
       DATABASE_URL: ${{ secrets.DATABASE_URL }}
