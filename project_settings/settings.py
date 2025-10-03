@@ -62,7 +62,6 @@ ROOT_URLCONF = "project_settings.urls"
 
 TEMPLATES = [
     {
-
         "BACKEND": "django.template.backends.django.DjangoTemplates",
         "DIRS": [BASE_DIR / "templates"],
         "APP_DIRS": True,
@@ -72,27 +71,19 @@ TEMPLATES = [
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
             ],
-
         },
     },
 ]
 
 
-
-WSGI_APPLICATION = 'project_settings.wsgi.application'
-
-
+WSGI_APPLICATION = "project_settings.wsgi.application"
 
 
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 
-
-DATABASES = {
-    'default': dj_database_url.parse(config('DATABASE_URL'))
-}
-
+DATABASES = {"default": dj_database_url.parse(config("DATABASE_URL"))}
 
 
 CACHES = {
@@ -101,7 +92,7 @@ CACHES = {
         "LOCATION": "redis://127.0.0.1:6379/1",
         "OPTIONS": {
             "CLIENT_CLASS": "django_redis.client.DefaultClient",
-        }
+        },
     }
 }
 # Password validation
@@ -109,7 +100,6 @@ CACHES = {
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-
         "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
     },
     {
@@ -128,7 +118,6 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
 
 
-
 LANGUAGE_CODE = "en-us"
 
 
@@ -143,7 +132,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 
-
 STATIC_URL = "static/"
 
 
@@ -151,7 +139,4 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 
-
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-
-
