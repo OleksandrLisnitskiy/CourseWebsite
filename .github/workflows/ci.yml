@@ -12,9 +12,12 @@ jobs:
   build_test:
     runs-on: ubuntu-latest
 
+
+
     services:
       postgres:
         image: postgres:14
+
         env:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: admin  # Set your password here
@@ -28,6 +31,7 @@ jobs:
     env:
       SECRET_KEY: ${{ secrets.SECRET_KEY }}
       DATABASE_URL: ${{ secrets.DATABASE_URL }}
+
     steps:
       # Check out the repository
       - name: Checkout code
@@ -56,6 +60,7 @@ jobs:
           python manage.py test  # Running Django tests
 
       # Optional: Run linters (like flake8 or pylint)
+
 #      - name: Run linter (flake8 example)
 #        run: |
 #          pip install flake8
