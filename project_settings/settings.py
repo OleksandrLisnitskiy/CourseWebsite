@@ -14,7 +14,7 @@ from pathlib import Path
 
 from decouple import config
 import dj_database_url
-
+import django_redis
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -34,10 +34,11 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    "payments",
-    "users",
-    "services",
-    "api",
+    "apps.payments",
+    "apps.users",
+    "apps.courses",
+    "apps.api",
+    "apps.notifications",
     "django_celery_beat",
     "django.contrib.admin",
     "django.contrib.auth",
@@ -94,7 +95,15 @@ DATABASES = {
 
 
 
-
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://127.0.0.1:6379/1",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        }
+    }
+}
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
 
